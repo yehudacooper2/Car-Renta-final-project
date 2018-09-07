@@ -1,0 +1,61 @@
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li>
+              <p>enter user name and password to log in</p>
+            </li>
+            <li>
+                <div class="form-group row">
+                    <div class="col-xs-12">
+                      <br>
+                      <input class="form-control" id="ex2" type="text" placeholder="Enter name to log in:"  [(ngModel)]="localUserName">
+                    </div>
+                  </div> 
+            </li>
+            <li>
+              <div class="form-group row">
+                  <div class="col-xs-12">
+                    <br>
+                    <input class="form-control" id="ex2" type="password" placeholder="Enter password to log in:" (keyup)="chooseUser()" [(ngModel)]="localUserPassword">
+                  </div>
+                </div> 
+          </li>
+           <li>
+              <a *ngIf=" localUser.UserRole== undefined"   routerLink="/register">REGISTER</a>
+          </li>
+            <li>
+               <a   routerLink="/home">HOME</a>
+            </li>
+              <li>
+                <a *ngIf=" userStore.singleUser.UserRole== undefined ||  userStore.singleUser.UserRole== 'user'"   routerLink="/chosenCars">CHOOSE-CAR</a>
+                </li>
+              <li>
+                <a   routerLink="/home" (click)="logOut()">LOG-OUT</a>
+              </li>
+            <li>
+              <a *ngIf="userStore.singleUser.UserRole=='manager'" routerLink="/users">USERS-LIST</a>
+            </li>
+            <li>
+              <a *ngIf="userStore.singleUser.UserRole=='manager'"routerLink="/cars">CARS-LIST</a>
+            </li>
+            <li>
+              <a *ngIf="userStore.singleUser.UserRole=='manager'"routerLink="/carTypes">CAR-TYPES-LIST</a>
+            </li>
+            <li>
+              <a *ngIf="userStore.singleUser.UserRole=='manager'"routerLink="/orders">ORDERS-LIST</a>
+            </li>
+            <li>
+                <a *ngIf="userStore.singleUser.UserRole=='worker'"routerLink="/carReturn">RETURN-CAR</a>
+              </li>
+           
+             <li>
+              <a *ngIf="userStore.singleUser.UserRole=='user'"routerLink="/userOrders">SHOW-USERS-ORDERS</a>
+             
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>

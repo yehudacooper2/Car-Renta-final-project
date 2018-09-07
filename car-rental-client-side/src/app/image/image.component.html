@@ -1,0 +1,21 @@
+<div class="container">
+  <br>
+  <br>
+  <br>
+  <br>
+  <h1>Image Upload</h1>
+
+  <form (ngSubmit)="OnSubmit(caption.value)">
+      <div>
+          <label>Caption</label>
+          <input type="text" #caption>
+      </div>
+      <div>
+          <input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
+          <img *ngIf="imageUrl" [src]="imageUrl" style="width:250px;height:200px;display:block;">
+      </div>
+
+      <button type="submit" [disabled]="Image.value=='' || caption.value==''"> Submit</button>
+  </form>
+
+</div>

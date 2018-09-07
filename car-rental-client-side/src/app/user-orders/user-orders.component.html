@@ -1,0 +1,40 @@
+
+<div class="container">
+    
+
+
+  <hr/>
+  <hr/>
+  <hr/>
+  
+  <a class="btn btn-primary" (click)="showUserOrders()">Show users orders</a>
+  
+  <hr/>
+  <div class="row">
+
+      <div class="col-md-3 book-container" *ngFor="let order of userOrderArray">
+          <div class="thumbnail">
+
+              <div class="caption">
+
+                  <h2>car-number: {{order.OrderCar.CarNumber}}</h2>
+                  <hr/>
+
+               
+                  <p>Order-start-day: {{order.OrderStartDate}}</p>
+                  <p>Order-return-day: 
+                      <span>{{order.OrderReturnDate}}</span>
+                  </p>
+                   <p>Order-actual-return-day: {{order.OrderActualReturnDate}}</p>
+                   <p>user-name: {{order.OrderUser.UserName}}</p>
+                   <p>
+                    <a class="btn btn-primary" routerLink="/order"  (click)="showOrder(order.OrderCar.CarNumber)">Show details</a>
+                </p>
+              </div>
+          </div>
+      </div>
+
+  </div>
+  <hr/>
+  <hr/>
+</div>

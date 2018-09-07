@@ -1,0 +1,59 @@
+
+<div class="container">
+    
+
+  <div class="well well-lg" *ngIf="actionMsg">{{actionMsg}}</div>
+
+  <hr/>
+  <hr/>
+  <hr/>
+  
+  <h1>Our car-types:</h1>
+  
+  <a class="btn btn-primary" routerLink="/addCarType">Add new CarType</a>
+  <hr/>
+  <div class="row">
+
+      <div class="col-md-3 book-container" *ngFor="let carType of carTypeStore.carTypeList">
+          <div class="thumbnail">
+
+              <div class="caption">
+
+                  <h2>{{carType.Model}}</h2>
+                  <hr/>
+
+               
+                  <p>Manufacturer: {{carType.Manufacturer}}</p>
+                  <p>Daily-Cost: {{carType.DailyCost}}
+                   </p>
+                  <p>DayDelayCost: {{carType.DayDelayCost}}</p>
+                  <p>Manufacturer-year: {{carType.ManufactureYear}}</p>
+                  <p>Gear: {{carType.Gear}}</p>
+                  <p>
+                    <a class="btn btn-primary" routerLink="/editCarType/{{carType.Model}}">Edit CarType</a>
+                    <a class="btn btn-primary" routerLink="/carType"  (click)="showCarType(carType.Model)">Show details</a>
+                    <a class="btn btn-primary" (click)="deleteCarType(carType.Model)">Delete CarType</a>
+                </p>
+              </div>
+          </div>
+      </div>
+
+  </div>
+  <hr/>
+  <hr/>
+  <hr/>
+  <hr/>
+  <hr/>
+  <hr/>
+  <hr/>
+  <hr/>
+  <hr/>
+  <hr/>
+  <hr/>
+  <hr/>
+  <hr/>
+  <hr/>
+  <hr/>
+  <hr/>
+  
+</div>

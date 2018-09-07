@@ -1,0 +1,59 @@
+
+
+<div class="container">
+
+  <h1>
+    {{(localParam)?"Edit ": "Add "}} User
+  </h1>
+
+  <div class="well well-lg" *ngIf="actionMsg">{{actionMsg}}</div>
+
+  <div class="form-group">
+    <label>UserName:</label>
+    <input type="text" class="form-control"  placeholder="Enter UserName" [(ngModel)]="localUser.UserName">
+  </div>
+  <div class="form-group">
+      <label>UserPassword:</label>
+      <input type="text" class="form-control"  placeholder="Enter UserPassword"  [(ngModel)]="localUser.UserPassword">
+    </div>
+    <div class="form-group">
+      <label>UserIdentityNumber:</label>
+      <input type="text" class="form-control"  placeholder="Enter UserIdentityNumber" [(ngModel)]="localUser.UserIdentityNumber">
+    </div>
+    <div class="form-group">
+      <label>UserFullName:</label>
+      <input type="text" class="form-control"  placeholder="Enter UserFullName" [(ngModel)]="localUser.UserFullName">
+    </div>
+    <div class="form-group">
+      <label>UserBirthday:</label>
+      <input type="date" class="form-control"  placeholder="Enter UserBirthDay" [(ngModel)]="localUser.UserBirthDay">
+    </div>
+    <div class="form-group">
+      <label>UserEmail:</label>
+      <input type="text" class="form-control"  placeholder="Enter UserEmail" [(ngModel)]="localUser.UserEmail">
+    </div>
+    <div class="form-group">
+        <label>UserGender:</label>
+      </div>
+        
+      <div class="form-group">
+        
+        <input type="radio" name="gender" value="true" class="form-check-label"  placeholder="Enter UserGender" [(ngModel)]="localUser.UserGender">Male
+      </div>
+      <div class="form-group">
+          <input type="radio" name="gender" value="false" class="form-check-label"  placeholder="Enter UserGender" [(ngModel)]="localUser.UserGender">Female
+        </div>
+  
+    <div class="form-group">
+      <label>UserRole:</label>
+      <input type="text" class="form-control"  placeholder="Enter UserRole" [(ngModel)]="localUser.UserRole">
+    </div>
+    <div class="form-group">
+      <label>UserImage:</label>
+      <input type="text" class="form-control"  placeholder="Enter UserImage" [(ngModel)]="localUser.UserImage">
+    </div>
+
+
+
+  <button class="btn btn-default" (click)="saveChanges()">Submit</button>
+</div>

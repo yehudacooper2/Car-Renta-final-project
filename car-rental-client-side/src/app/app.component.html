@@ -1,0 +1,59 @@
+
+<div id="myPage" data-offset="50">
+
+  <!--Header--><!-- 
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+              <div class="form-group row">
+                  <div class="col-xs-12">
+                    <br>
+                    <input class="form-control" id="ex2" type="text" placeholder="Enter name:">
+                  </div>
+                </div> 
+          </li>
+          <li>
+            <a routerLink="/books">BOOKS</a>
+          </li>
+          <li>
+            <a routerLink="/authors">AUTHORS</a>
+          </li>
+          <li>
+            <a routerLink="/users">USERS</a>
+          </li>
+          <li>
+            <a routerLink="/cars">CARS</a>
+          </li>
+          <li>
+            <a routerLink="/carTypes">CAR-TYPES</a>
+          </li>
+          <li>
+            <a routerLink="/orders">ORDERS</a>
+          </li>
+          <li>
+            <a routerLink="/login">LogIn</a>
+          </li>
+          <li>
+            <a routerLink="/register">REGISTER</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav> -->
+     <app-header></app-header>
+  <!--Main-->
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <br>
+    <br>
+    <p>&copy; Made By  {{adminName}} - {{currentYear}}</p>
+  </footer>
+
+
+</div>

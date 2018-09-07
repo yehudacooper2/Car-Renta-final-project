@@ -1,0 +1,44 @@
+<br>
+<div class="container">
+    
+
+  <div class="well well-lg" *ngIf="actionMsg">{{actionMsg}}</div>
+
+  
+  <h1>Our users:</h1>
+  
+  <a class="btn btn-primary" routerLink="/addUser">Add new User</a>
+  <hr/>
+  <div class="row">
+
+      <div class="col-md-3 book-container" *ngFor="let user of userStore.userList">
+          <div class="thumbnail">
+
+              <div class="caption">
+
+                  <h2>{{user.UserName}}</h2>
+                  <hr/>
+
+               
+                  <p>FullName: {{user.UserFullName}}</p>
+                  <p>Password: {{user.UserPassword}}
+                  </p>
+                  <p>IdentityNumber: {{user.UserIdentityNumber}}</p>
+                  <p>Gender: {{user.UserGender}}</p>
+                  <p>Email: {{user.UserEmail}}</p>
+                  <p>BirthDay: {{user.UserBirthDay}}</p>
+                  <p>Role: {{user.UserRole}}</p>
+                  <p>Image: {{user.UserImage}}</p>
+         <img src= {{userStore.singleUser?.UserImage}} width="130" height="100">
+                  
+                  <p>
+                    <a class="btn btn-primary" routerLink="/editUser/{{user.UserName}}">Edit User</a>
+                    <a class="btn btn-primary" (click)="deleteUser(user.UserName)">Delete User</a>
+                </p>
+              </div>
+          </div>
+      </div>
+
+  </div>
+  
+</div>

@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="panel panel-default" >
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="form-group row">
+      <div class="col-xs-12">
+        <br>
+        <input class="form-control" id="ex2" type="text" placeholder="Enter car number:" (keyup)="showOrder(localCarNumber)" [(ngModel)]="localCarNumber">
+      </div>
+    </div> 
+   <!-- <button class="btn btn-default" (click)="returnCar()">Return-Car</button>-->
+    <a class="btn btn-primary"   (click)="returnCar()">Return-Car</a> 
+    
+
+
+      <div class="panel-heading"><h1>order car number: {{orderStore.singleOrder?.OrderCar.CarNumber}}</h1></div>
+      <div class="panel-body">
+
+
+           <p>order-start-date: {{orderStore.singleOrder?.OrderStartDate}}</p>
+          <p> order-return-date: {{orderStore.singleOrder?.OrderReturnDate}}</p> 
+          <p> order-actual-return date: {{orderStore.singleOrder?.OrderActualReturnDate}}</p>
+          <p> order car model : {{orderStore.singleOrder?.OrderCar.CarType.Model}}</p>
+          <p> order car manufacturer: {{orderStore.singleOrder?.OrderCar.CarType.Manufacturer}}</p>
+          <p> order car manufacture year: {{orderStore.singleOrder?.OrderCar.CarType.ManufactureYear}}</p>
+          <p> order car gear: {{orderStore.singleOrder?.OrderCar.CarType.Gear}}</p>
+          <p> order daily cost: {{orderStore.singleOrder?.OrderCar.CarType.DailyCost}}</p>
+          <p> order day delay cost: {{orderStore.singleOrder?.OrderCar.CarType.DayDelayCost}}</p>
+          <p> order number of no delay days: {{numberOfNoDelayDates}}</p>
+          <p> order number of delay days: {{numberOfDelayDates}}</p>
+          <p> order costs: {{orderCosts}}</p>
+          
+      </div>
+  
+      <div class="well well-lg" *ngIf="actionMsg">{{actionMsg}}</div>
+
+
+
+</div>
+
+</div>

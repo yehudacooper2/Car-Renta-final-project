@@ -1,0 +1,51 @@
+
+
+<div class="container">
+
+  <h1>
+    {{(localParam)?"Edit ": "Add "}} Car
+  </h1>
+
+  <div class="well well-lg" *ngIf="actionMsg">{{actionMsg}}</div>
+
+  <div class="form-group">
+    <label>CarNumber:</label>
+    <input type="text" class="form-control"  placeholder="Enter CarNumber" [(ngModel)]="localCar.CarNumber">
+  </div>
+  <div class="form-group">
+      <label>Current-Kilometerage:</label>
+      <input type="number" class="form-control"  placeholder="Enter Current-Kilometerage"  [(ngModel)]="localCar.CarCurrentKilometerage">
+    </div>
+    <div class="form-group">
+      <label>IsFitForRental:</label>
+      <input type="text" class="form-control"  placeholder="Enter IsFitForRental"  [(ngModel)]="localCar.CarIsFitForRental">
+    </div>
+    <div class="form-group">
+      <input type="radio" name="isFit" value="true" class="form-check-label"  placeholder="Enter is fit for rental" [(ngModel)]="localCar.CarIsFitForRental">IsFit
+    </div>
+    <div class="form-group">
+        <input type="radio" name="isFit" value="false" class="form-check-label"  placeholder="Enter is fit for rental" [(ngModel)]="localCar.CarIsFitForRental">NotFit
+      </div>
+    <div class="form-group">
+      <label>Car-Image:</label>
+      <input type="text" class="form-control"  placeholder="Enter Car-Image"  [(ngModel)]="localCar.CarImage">
+    </div>
+    
+      <button class="btn btn-default" routerLink="/image">UpLoadImage</button>
+
+    <label>CarType list:</label>
+    <select class="form-control" #carType (change)="saveCarType(carType.value)">
+      <option *ngFor="let carType of carTypeStore.carTypeList" >{{carType.Model}}</option>
+      
+    </select>
+
+
+     <label>Branch list:</label>
+    <select class="form-control" #branchName (change)="saveBranch(branchName.value)">
+      <option *ngFor="let branch of branchStore.branchList" >{{branch.BranchName}}</option>
+    </select> 
+
+
+  <button class="btn btn-default" (click)="saveChanges()">Submit</button>
+</div>
+

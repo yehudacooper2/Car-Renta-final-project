@@ -1,0 +1,42 @@
+<div class="container">
+
+  <h1>
+    {{(localParam)?"Edit ": "Add "}} CarType
+  </h1>
+
+  <div class="well well-lg" *ngIf="actionMsg">{{actionMsg}}</div>
+
+  <div class="form-group">
+    <label>Model:</label>
+    <input type="text" class="form-control"  placeholder="Enter Model" [(ngModel)]="localCarType.Model">
+  </div>
+  <div class="form-group">
+      <label>ManufactureYear:</label>
+      <input type="number" class="form-control"  placeholder="Enter ManufactureYear"  [(ngModel)]="localCarType.ManufactureYear">
+    </div>
+    <div class="form-group">
+      <label>Manufacturer:</label>
+      <input type="text" class="form-control"  placeholder="Enter Manufacturer" [(ngModel)]="localCarType.Manufacturer">
+    </div>
+    <div class="form-group">
+      <label>DailyCost:</label>
+      <input type="number" class="form-control"  placeholder="Enter DailyCost" [(ngModel)]="localCarType.DailyCost">
+    </div>
+    <div class="form-group">
+      <label>DayDelayCost:</label>
+      <input type="number" class="form-control"  placeholder="Enter DayDelayCost" [(ngModel)]="localCarType.DayDelayCost">
+    </div>
+    <div class="form-group">
+      <label>Gear:</label>
+      <input type="text" class="form-control"  placeholder="Enter IsGear" [(ngModel)]="localCarType.Gear">
+    </div>
+    <div class="form-group">
+      <input type="radio" name="gear" value="true" class="form-check-label"  placeholder="Enter IsGear" [(ngModel)]="localCarType.Gear">Gear
+    </div>
+    <div class="form-group">
+        <input type="radio" name="gear" value="false" class="form-check-label"  placeholder="Enter IsGear" [(ngModel)]="localCarType.Gear">NoGear
+      </div>
+
+
+  <button class="btn btn-default" (click)="saveChanges()">Submit</button>
+</div>

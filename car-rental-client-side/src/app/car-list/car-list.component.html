@@ -1,0 +1,43 @@
+
+<div class="container">
+    
+
+  <div class="well well-lg" *ngIf="actionMsg">{{actionMsg}}</div>
+<br>
+<br>
+<br>  
+  <h1>Our cars:</h1>
+  
+  <a class="btn btn-primary" routerLink="/addCar">Add new Car</a>
+  <hr/>
+  <div class="row">
+
+      <div class="col-md-3 book-container" *ngFor="let car of carStore.carList">
+          <div class="thumbnail">
+
+              <div class="caption">
+
+                  <h2>{{car.CarNumber}}</h2>
+                  <hr/>
+
+               
+                  <p>CurrentKilometerage: {{car.CarCurrentKilometerage}}</p>
+                  <p>Is-fit-for-rental:
+                      <span>{{car.CarIsFitForRental}}</span>
+                  </p>
+                   <p>Car-Image: {{car.CarImage}}</p>
+                   <p>Car-Type: {{car.CarType.Model}}</p>
+                   <p>CarBranch: {{car.CarBranch.BranchName}}</p>
+                   <p></p>
+                   
+                  <p>
+                    <a class="btn btn-primary" routerLink="/editCar/{{car.CarNumber}}">Edit Car</a>
+                    <a class="btn btn-primary" routerLink="/car"  (click)="showCar(car.CarNumber)">Show details</a>
+                    <a class="btn btn-primary" (click)="deleteCar(car.CarNumber)">Delete Car</a>
+                </p>
+              </div>
+          </div>
+      </div>
+
+  </div>
+</div>

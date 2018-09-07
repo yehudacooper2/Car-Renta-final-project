@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="panel panel-default" >
+    <br>
+    <br>
+    <br>
+    <br>
+    
+
+
+      <div class="panel-heading"><h1>car number: {{carStore.singleCar?.CarNumber}}</h1></div>
+      <div class="panel-body">
+
+
+          <p> car type: {{carStore.singleCar?.CarType.Model}}</p>
+          <p> car Manufacturer: {{carStore.singleCar?.CarType.Manufacturer}}</p>
+          <p> car ManufactureYear: {{carStore.singleCar?.CarType.ManufactureYear}}</p>
+          <p> car daily cost: {{carStore.singleCar?.CarType.DailyCost}}</p>
+          <p> car day delay cost: {{carStore.singleCar?.CarType.DayDelayCost}}</p>
+          <p> car gear: {{carStore.singleCar?.CarType.Gear}}</p>
+          <p> car branch: {{carStore.singleCar?.CarBranch.BranchName}}</p>
+          <p> car is fit for rental: {{carStore.singleCar?.CarIsFitForRental}}</p>
+         <img src= {{carStore.singleCar?.CarImage}} width="350" height="200">
+      </div>
+    
+     
+      <p>
+          <a class="btn btn-primary" routerLink="/orderCar">Order Car</a>
+      </p>
+  
+  </div>
+
+
+
+  <a routerLink="/chosenCars" class="btn btn-primary">Back to list</a>
+
+</div>
+

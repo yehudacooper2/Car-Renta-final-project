@@ -1,0 +1,48 @@
+
+<div class="container">
+    
+
+  <div class="well well-lg" *ngIf="actionMsg">{{actionMsg}}</div>
+
+  <hr/>
+  <hr/>
+  <hr/>
+  
+  <h1>Our orders:</h1>
+  
+  <a class="btn btn-primary" routerLink="/addOrder">Add new Order</a>
+  <hr/>
+  <div class="row">
+
+      <div class="col-md-3 book-container" *ngFor="let order of orderStore.orderList">
+          <div class="thumbnail">
+
+              <div class="caption">
+
+                  <h2>car-number: {{order.OrderCar.CarNumber}}</h2>
+                  <hr/>
+
+               
+                  <p>Order-start-day: {{order.OrderStartDate}}</p>
+                  <p>Order-return-day: 
+                      <span>{{order.OrderReturnDate}}</span>
+                  </p>
+                   <p>Order-actual-return-day: {{order.OrderActualReturnDate}}</p>
+                   <p>user-name: {{order.OrderUser.UserName}}</p>
+                   <p></p>
+                   
+                  <p>
+                    <a class="btn btn-primary" routerLink="/editOrder/{{order.OrderCar.CarNumber}}">Edit Order</a>
+                    <a class="btn btn-primary" routerLink="/order"  (click)="showOrder(order.OrderCar.CarNumber)">Show details</a>
+                    <a class="btn btn-primary" (click)="deleteOrder(order.OrderCar.CarNumber)">Delete Order</a>
+                </p>
+              </div>
+  <div class="well well-lg" *ngIf="actionMsg">{{actionMsg}}</div>
+              
+          </div>
+      </div>
+
+  </div>
+  <hr/>
+  <hr/>
+</div>

@@ -1,0 +1,40 @@
+
+
+<div class="container">
+
+  <h1>
+    {{(localParam)?"Edit ": "Add "}} Order
+  </h1>
+
+  <div class="well well-lg" *ngIf="actionMsg">{{actionMsg}}</div>
+
+ <!--  <div class="form-group">
+    <label>Order-CarNumber:</label>
+    <input type="text" class="form-control"  placeholder="Enter Order-CarNumber" [(ngModel)]="localOrder.OrderCar.CarNumber">
+  </div>  -->
+  <div class="form-group">
+      <label>Order-start-date:</label>
+      <input type="datetime" class="form-control"  placeholder="Enter order-start-date"  [(ngModel)]="localOrder.OrderStartDate">
+    </div>
+    <div class="form-group">
+      <label>Order-return-date:</label>
+      <input type="datetime" class="form-control"  placeholder="Enter order-return-date"  [(ngModel)]="localOrder.OrderReturnDate">
+    </div>
+    <div class="form-group">
+      <label>Order-actual-return-date:</label>
+      <input  type="datetime" class="form-control"  placeholder="Enter order-actual-return-date"  [(ngModel)]="localOrder.OrderActualReturnDate" ng-required="true" >
+    </div>
+
+    <label>Car list:</label>
+    <select class="form-control" #car (change)="saveCar(car.value)">
+      <option *ngFor="let car of carStore.carList" >{{car.CarNumber}}</option>
+    </select>
+
+
+    <label>User list:</label>
+    <select class="form-control" #userName (change)="saveUser(userName.value)">
+      <option *ngFor="let user of userStore.userList" >{{user.UserName}}</option>
+    </select>
+
+  <button class="btn btn-default" (click)="saveChanges()">Submit</button>
+</div>
