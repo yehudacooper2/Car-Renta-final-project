@@ -13,40 +13,42 @@ import { UserEditService } from '../shared/services/userEdit.service';
 export class RegisterComponent implements OnInit {
 
 
-actionMsg: string;
+  actionMsg: string;
   localParam: string;
   localUser: User =
-   { 'UserFullName': undefined,
-    'UserIdentityNumber': undefined,
-    'UserName':  undefined,
-    'UserBirthDay': undefined,
-    'UserGender':  undefined,
-    'UserEmail':  undefined,
-    'UserPassword':  undefined,
-    'UserRole':  undefined,
-    'UserImage':  undefined };
+    {
+      'UserFullName': undefined,
+      'UserIdentityNumber': undefined,
+      'UserName': undefined,
+      'UserBirthDay': undefined,
+      'UserGender': undefined,
+      'UserEmail': undefined,
+      'UserPassword': undefined,
+      'UserRole': undefined,
+      'UserImage': undefined
+    };
 
-  constructor(private myUserService: UserService,  private myActivatedRoute: ActivatedRoute, private myUserEditService: UserEditService) { }
+  constructor(private myUserService: UserService, private myActivatedRoute: ActivatedRoute, private myUserEditService: UserEditService) { }
 
   ngOnInit() {
   }
 
   saveChanges() {
-    const callback = (bool: boolean) => {this.actionMsg = (bool) ? 'action success' : 'action fail'; } ;
+    const callback = (bool: boolean) => { this.actionMsg = (bool) ? 'action success' : 'action fail'; };
     this.localUser.UserRole = 'user';
     // tslint:disable-next-line:max-line-length
     if (this.localUser.UserIdentityNumber.length !== 9) {
       this.actionMsg = 'please enter identity number with 9 digits';
     } else
-    if (this.localUser.UserPassword.length !== 6) {
-      this.actionMsg = 'please enter identity number with 6 digits';
-    } else
-    if (this.localUser.UserFullName == null || this.localUser.UserPassword == null || this.localUser.UserEmail == null
-       || this.localUser.UserGender == null || this.localUser.UserIdentityNumber == null || this.localUser.UserName == null) {
-      this.actionMsg = 'please enter all required fields';
-    } else {
-    (this.myUserEditService.addUser(this.localUser, callback)) ;
-    }
+      if (this.localUser.UserPassword.length !== 6) {
+        this.actionMsg = 'please enter identity number with 6 digits';
+      } else
+        if (this.localUser.UserFullName == null || this.localUser.UserPassword == null || this.localUser.UserEmail == null
+          || this.localUser.UserGender == null || this.localUser.UserIdentityNumber == null || this.localUser.UserName == null) {
+          this.actionMsg = 'please enter all required fields';
+        } else {
+          (this.myUserEditService.addUser(this.localUser, callback));
+        }
   }
 
 

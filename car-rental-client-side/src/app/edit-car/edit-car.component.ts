@@ -16,16 +16,18 @@ import { BranchService } from '../shared/services/branch.service';
   styleUrls: ['./edit-car.component.css']
 })
 export class EditCarComponent implements OnInit {
-localCarType: string;
-carTypeStore: CarTypeStore;
-branchStore: BranchStore;
-actionMsg: string;
+  localCarType: string;
+  carTypeStore: CarTypeStore;
+  branchStore: BranchStore;
+  actionMsg: string;
   localParam: string;
-  localCar: Car = {'CarNumber': undefined, 'CarCurrentKilometerage': undefined, 'CarImage': undefined,
-  'CarIsFitForRental': undefined, 'CarType': undefined, 'CarBranch': undefined};
+  localCar: Car = {
+    'CarNumber': undefined, 'CarCurrentKilometerage': undefined, 'CarImage': undefined,
+    'CarIsFitForRental': undefined, 'CarType': undefined, 'CarBranch': undefined
+  };
 
-  constructor(private myCarService: CarService, private  myCarTypeService: CarTypeService,
-     private myBranchService: BranchService, private myActivatedRoute: ActivatedRoute) { }
+  constructor(private myCarService: CarService, private myCarTypeService: CarTypeService,
+    private myBranchService: BranchService, private myActivatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.branchStore = this.myBranchService.branchInfo;
@@ -35,22 +37,24 @@ actionMsg: string;
       this.localParam = params.carNumber;
 
       if (params.carNumber) {
-        this.myCarService.getCarForEdit(params.carNumber, (car: Car) => {this.localCar = car;
+        this.myCarService.getCarForEdit(params.carNumber, (car: Car) => {
+        this.localCar = car;
           this.localCar.CarType = this.carTypeStore.carTypeList[0];
-          this.localCar.CarBranch = this.branchStore.branchList[0] ; } );
+          this.localCar.CarBranch = this.branchStore.branchList[0];
+        });
       }
     });
   }
 
   saveChanges() {
-    const callback = (bool: boolean) => {this.actionMsg = (bool) ? 'action success' : 'action fail'; } ;
+    const callback = (bool: boolean) => { this.actionMsg = (bool) ? 'action success' : 'action fail'; };
     this.localCar.CarType = this.localCar.CarType || this.carTypeStore.carTypeList[0];
 
     this.localCar.CarBranch = this.localCar.CarBranch || this.branchStore.branchList[0];
 
 
     (this.localParam) ? this.myCarService.editCar(this.localCar, this.localParam, callback)
-     : this.myCarService.addCar(this.localCar, callback) ;
+      : this.myCarService.addCar(this.localCar, callback);
   }
 
 

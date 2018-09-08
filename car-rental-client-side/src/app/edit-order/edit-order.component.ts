@@ -17,15 +17,17 @@ import { UserService } from '../shared/services/user.service';
 })
 export class EditOrderComponent implements OnInit {
 
-carStore: CarStore;
-userStore: UserStore;
-actionMsg: string;
+  carStore: CarStore;
+  userStore: UserStore;
+  actionMsg: string;
   localParam: string;
-  localOrder: Order = {'OrderStartDate': undefined, 'OrderReturnDate': undefined, 'OrderActualReturnDate': undefined,
-   'OrderCar': undefined, 'OrderUser': undefined};
+  localOrder: Order = {
+    'OrderStartDate': undefined, 'OrderReturnDate': undefined, 'OrderActualReturnDate': undefined,
+    'OrderCar': undefined, 'OrderUser': undefined
+  };
 
-  constructor(private myOrderService: OrderService, private  myCarService: CarService,
-     private myUserService: UserService, private myActivatedRoute: ActivatedRoute) { }
+  constructor(private myOrderService: OrderService, private myCarService: CarService,
+    private myUserService: UserService, private myActivatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.userStore = this.myUserService.userInfo;
@@ -35,21 +37,23 @@ actionMsg: string;
       this.localParam = params.carNumber;
 
       if (params.carNumber) {
-        this.myOrderService.getOrderForEdit(params.carNumber, (order: Order) => {this.localOrder = order;
-           this.localOrder.OrderCar = this.carStore.carList[0];
-           this.localOrder.OrderUser = this.userStore.userList[0]; } );
+        this.myOrderService.getOrderForEdit(params.carNumber, (order: Order) => {
+        this.localOrder = order;
+          this.localOrder.OrderCar = this.carStore.carList[0];
+          this.localOrder.OrderUser = this.userStore.userList[0];
+        });
       }
     });
   }
 
   saveChanges() {
-    const callback = (bool: boolean) => {this.actionMsg = (bool) ? 'action success' : 'action fail'; } ;
+    const callback = (bool: boolean) => { this.actionMsg = (bool) ? 'action success' : 'action fail'; };
     this.localOrder.OrderCar = this.localOrder.OrderCar || this.carStore.carList[0];
 
     this.localOrder.OrderUser = this.localOrder.OrderUser || this.userStore.userList[0];
 
     (this.localParam) ? this.myOrderService.editOrder(this.localOrder, this.localParam, callback)
-    : this.myOrderService.addOrder(this.localOrder, callback) ;
+      : this.myOrderService.addOrder(this.localOrder, callback);
   }
 
 

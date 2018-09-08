@@ -13,33 +13,34 @@ import { CarType } from '../shared/models/carType.model';
 export class EditCarTypeComponent implements OnInit {
 
 
-actionMsg: string;
+  actionMsg: string;
   localParam: string;
   localCarType: CarType =
-   { 'Model': undefined,
-    'Manufacturer': undefined,
-    'ManufactureYear':  undefined,
-    'DailyCost': undefined,
-    'DayDelayCost':  undefined,
-    'Gear':  undefined,
-     };
+    {
+      'Model': undefined,
+      'Manufacturer': undefined,
+      'ManufactureYear': undefined,
+      'DailyCost': undefined,
+      'DayDelayCost': undefined,
+      'Gear': undefined,
+    };
 
-  constructor(private myCarTypeService: CarTypeService,  private myActivatedRoute: ActivatedRoute) { }
+  constructor(private myCarTypeService: CarTypeService, private myActivatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.myActivatedRoute.params.subscribe(params => {
       this.localParam = params.carModel;
 
       if (params.carModel) {
-        this.myCarTypeService.getCarTypeForEdit(params.carModel, (carType: CarType) => {this.localCarType = carType; } );
+        this.myCarTypeService.getCarTypeForEdit(params.carModel, (carType: CarType) => { this.localCarType = carType; });
       }
     });
   }
 
   saveChanges() {
-    const callback = (bool: boolean) => {this.actionMsg = (bool) ? 'action success' : 'action fail'; } ;
+    const callback = (bool: boolean) => { this.actionMsg = (bool) ? 'action success' : 'action fail'; };
     // tslint:disable-next-line:max-line-length
-    (this.localParam) ? this.myCarTypeService.editCarType(this.localCarType, this.localParam, callback) : this.myCarTypeService.addCarType(this.localCarType, callback) ;
+    (this.localParam) ? this.myCarTypeService.editCarType(this.localCarType, this.localParam, callback) : this.myCarTypeService.addCarType(this.localCarType, callback);
   }
 
 

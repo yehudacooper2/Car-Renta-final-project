@@ -37,19 +37,19 @@ export class CarReturnComponent implements OnInit {
   returnCar() {
     this.localOrder = this.orderStore.singleOrder;
 
-  this.orderStore.singleOrder.OrderActualReturnDate = new Date(new Date().toString());
-  // tslint:disable-next-line:max-line-length
-  this.numberOfDates = (new Date(this.localOrder.OrderActualReturnDate).getTime() - new Date(this.localOrder.OrderStartDate).getTime()) / 86400000;
-  // tslint:disable-next-line:max-line-length
-  this.numberOfDelayDates = (new Date(this.localOrder.OrderActualReturnDate).getTime() - new Date(this.localOrder.OrderReturnDate).getTime()) / 86400000;
-  // tslint:disable-next-line:max-line-length
-  this.numberOfNoDelayDates = (new Date(this.localOrder.OrderReturnDate).getTime() - new Date(this.localOrder.OrderStartDate).getTime()) / 86400000;
+    this.orderStore.singleOrder.OrderActualReturnDate = new Date(new Date().toString());
+    // tslint:disable-next-line:max-line-length
+    this.numberOfDates = (new Date(this.localOrder.OrderActualReturnDate).getTime() - new Date(this.localOrder.OrderStartDate).getTime()) / 86400000;
+    // tslint:disable-next-line:max-line-length
+    this.numberOfDelayDates = (new Date(this.localOrder.OrderActualReturnDate).getTime() - new Date(this.localOrder.OrderReturnDate).getTime()) / 86400000;
+    // tslint:disable-next-line:max-line-length
+    this.numberOfNoDelayDates = (new Date(this.localOrder.OrderReturnDate).getTime() - new Date(this.localOrder.OrderStartDate).getTime()) / 86400000;
 
-  // tslint:disable-next-line:max-line-length
-  this.orderCosts = this.numberOfDelayDates * this.carStore.singleCar.CarType.DayDelayCost + this.numberOfNoDelayDates * this.carStore.singleCar.CarType.DailyCost ;
+    // tslint:disable-next-line:max-line-length
+    this.orderCosts = this.numberOfDelayDates * this.carStore.singleCar.CarType.DayDelayCost + this.numberOfNoDelayDates * this.carStore.singleCar.CarType.DailyCost;
 
-  const callback = (bool: boolean) => {this.actionMsg = (bool) ? 'action success' : 'action fail'; } ;
-  this.myOrderService.editOrder(this.localOrder, this.localCarNumber, callback) ;
+    const callback = (bool: boolean) => { this.actionMsg = (bool) ? 'action success' : 'action fail'; };
+    this.myOrderService.editOrder(this.localOrder, this.localCarNumber, callback);
 
   }
 }

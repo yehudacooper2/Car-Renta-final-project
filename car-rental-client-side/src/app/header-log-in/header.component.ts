@@ -15,70 +15,80 @@ export class HeaderComponent implements OnInit {
   localUserName: string;
   localUserPassword: string;
   localUser: User =
-   { 'UserFullName': undefined,
-   'UserIdentityNumber': undefined,
-   'UserName':  undefined,
-   'UserBirthDay': undefined,
-   'UserGender':  undefined,
-   'UserEmail':  undefined,
-   'UserPassword':  undefined,
-   'UserRole':  undefined,
-   'UserImage':  undefined };
+    {
+      'UserFullName': undefined,
+      'UserIdentityNumber': undefined,
+      'UserName': undefined,
+      'UserBirthDay': undefined,
+      'UserGender': undefined,
+      'UserEmail': undefined,
+      'UserPassword': undefined,
+      'UserRole': undefined,
+      'UserImage': undefined
+    };
   constructor(private myUserService: UserService) {
 
-   }
+  }
 
   ngOnInit() {
     this.userStore = this.myUserService.userInfo;
 
 
-     this.localUser = this.myUserService.userInfo.singleUser ||
-       { 'UserFullName': undefined,
-    'UserIdentityNumber': undefined,
-    'UserName':  undefined,
-    'UserBirthDay': undefined,
-    'UserGender':  undefined,
-    'UserEmail':  undefined,
-    'UserPassword':  undefined,
-    'UserRole':  undefined,
-    'UserImage':  undefined };
+    this.localUser = this.myUserService.userInfo.singleUser ||
+      {
+        'UserFullName': undefined,
+        'UserIdentityNumber': undefined,
+        'UserName': undefined,
+        'UserBirthDay': undefined,
+        'UserGender': undefined,
+        'UserEmail': undefined,
+        'UserPassword': undefined,
+        'UserRole': undefined,
+        'UserImage': undefined
+      };
 
-    this.userStore.singleUser =  this.userStore.singleUser || { 'UserFullName': undefined,
-    'UserIdentityNumber': undefined,
-    'UserName':  undefined,
-    'UserBirthDay': undefined,
-    'UserGender':  undefined,
-    'UserEmail':  undefined,
-    'UserPassword':  undefined,
-    'UserRole':  undefined,
-    'UserImage':  undefined };
+    this.userStore.singleUser = this.userStore.singleUser || {
+      'UserFullName': undefined,
+      'UserIdentityNumber': undefined,
+      'UserName': undefined,
+      'UserBirthDay': undefined,
+      'UserGender': undefined,
+      'UserEmail': undefined,
+      'UserPassword': undefined,
+      'UserRole': undefined,
+      'UserImage': undefined
+    };
 
   }
   chooseUser(): void {
-   if (this.userStore.userList.find(x => x.UserName === this.localUserName && x.UserPassword === this.localUserPassword )) {
-     this.userStore.singleUser = this.userStore.userList.find(x => x.UserName === this.localUserName);
-  } else {
-    this.userStore.singleUser = { 'UserFullName': undefined,
-     'UserIdentityNumber': undefined,
-     'UserName':  undefined,
-     'UserBirthDay': undefined,
-     'UserGender':  undefined,
-     'UserEmail':  undefined,
-     'UserPassword':  undefined,
-     'UserRole':  undefined,
-     'UserImage':  undefined };
+    if (this.userStore.userList.find(x => x.UserName === this.localUserName && x.UserPassword === this.localUserPassword)) {
+      this.userStore.singleUser = this.userStore.userList.find(x => x.UserName === this.localUserName);
+    } else {
+      this.userStore.singleUser = {
+        'UserFullName': undefined,
+        'UserIdentityNumber': undefined,
+        'UserName': undefined,
+        'UserBirthDay': undefined,
+        'UserGender': undefined,
+        'UserEmail': undefined,
+        'UserPassword': undefined,
+        'UserRole': undefined,
+        'UserImage': undefined
+      };
+    }
   }
-}
-logOut(): void {
-  this.userStore.singleUser = { 'UserFullName': undefined,
-  'UserIdentityNumber': undefined,
-  'UserName':  undefined,
-  'UserBirthDay': undefined,
-  'UserGender':  undefined,
-  'UserEmail':  undefined,
-  'UserPassword':  undefined,
-  'UserRole':  'a',
-  'UserImage':  undefined };
-}
+  logOut(): void {
+    this.userStore.singleUser = {
+      'UserFullName': undefined,
+      'UserIdentityNumber': undefined,
+      'UserName': undefined,
+      'UserBirthDay': undefined,
+      'UserGender': undefined,
+      'UserEmail': undefined,
+      'UserPassword': undefined,
+      'UserRole': 'a',
+      'UserImage': undefined
+    };
+  }
 
 }

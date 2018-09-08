@@ -37,12 +37,14 @@ export class CarTypeService {
         this.myHttpClient.get(`${this.link}?carModel=${carModel}`)
             .subscribe((x: CarType) => { callback(x); });
     }
+// sends a request to delete a specific carType (by carModel) from server.
 
     deleteCarType(carModel: string): Observable<boolean> {
         const apiUrl = `${this.link}?carModel=${carModel}`;
         return this.myHttpClient.delete<boolean>(apiUrl, { headers: {'Authorization': `${this.userName} ${ this.userPassword }` }});
     }
 
+// sends a request to add a new carType to the db on the server.
 
     addCarType(carType: CarType, callback: (bool: boolean) => void): void {
         this.myHttpClient.post<boolean> (this.link , JSON.stringify(carType),
@@ -50,6 +52,7 @@ export class CarTypeService {
          .subscribe(() => {this.getCarTypes(); callback(true); },
         () => {callback(false); });
     }
+// sends a request to update s specific carType (by carModel) in the db on the server.
 
     editCarType(carType: CarType, carModel: string, callback: (bool: boolean) => void): void {
         // tslint:disable-next-line:max-line-length

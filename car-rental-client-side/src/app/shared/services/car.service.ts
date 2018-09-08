@@ -37,12 +37,14 @@ export class CarService {
         this.myHttpClient.get(`${this.link}?carNumber=${carNumber}`)
             .subscribe((x: Car) => { callback(x); });
     }
+// sends a request to delete a specific car (by carNumber) from server.
 
     deleteCar(carNumber: string): Observable<boolean> {
         const apiUrl = `${this.link}?carNumber=${carNumber}`;
         return this.myHttpClient.delete<boolean>(apiUrl,  { headers: {'Authorization': `${this.userName} ${ this.userPassword }` }});
     }
 
+// sends a request to add a new car to the db on the server.
 
     addCar(car: Car, callback: (bool: boolean) => void): void {
         this.myHttpClient.post<boolean> (this.link , JSON.stringify(car),
@@ -50,6 +52,7 @@ export class CarService {
         .subscribe(() => {this.getCars(); callback(true); },
         () => {callback(false); });
     }
+// sends a request to update s specific car (by carNumber) in the db on the server.
 
     editCar(car: Car, carNumber: string, callback: (bool: boolean) => void): void {
         this.myHttpClient.put<boolean>(`${this.link}?carNumber=${carNumber}`, JSON.stringify(car),
