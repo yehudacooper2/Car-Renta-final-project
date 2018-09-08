@@ -203,15 +203,15 @@ VALUES('Rothsield 78-Haifa',78,43,'Haifa')
 
 
 INSERT INTO [Cars]
-VALUES(2,14000,'mazda.png','true',12345678,1)
+VALUES(2,14000,'http://t1.gstatic.com/images?q=tbn:ANd9GcTPUg3_Gkkxj0rmALo4GxL5vMAECY08SeNX57oY2PE_cJhRQzcXchUWjLQ','true',12345678,1)
 INSERT INTO [Cars]
-VALUES(4,14000,'corolla-front.jpg','true',23456789,1)
+VALUES(4,14000,'http://t3.gstatic.com/images?q=tbn:ANd9GcSc5bIgbomynQ0xVnsLohWpAFHvWhs9EaxglXP5hnCDtIifaW3lDwUNe7k','true',23456789,1)
 INSERT INTO [Cars]
-VALUES(5,14000,'mitsubishi.jpg','true',34567890,2)
+VALUES(5,14000,'http://t0.gstatic.com/images?q=tbn:ANd9GcQ3Hwklm3_nvrwwO2Vd5ckF86d7x4pvzGTKwjBPErlM94uKYSNNXHfapXl9','true',34567890,2)
 INSERT INTO [Cars]
-VALUES(1,14000,'volvo.jpg','true',45678901,1)
+VALUES(1,14000,'http://t2.gstatic.com/images?q=tbn:ANd9GcQmoDW_k25X9ftQNgExDWlYOcdWcAlRJu_CM5CWkpruIGTNdS4Qq4X_vGoa','true',45678901,1)
 INSERT INTO [Cars]
-VALUES(3,14000,'s_class.png','true',56789012,1)
+VALUES(3,14000,'http://t1.gstatic.com/images?q=tbn:ANd9GcSi2QUlOWPsydQVgP5wKdBfkv8yOnMDP1DA5oCf77lyl045rhACt0dppQ','true',56789012,1)
 
 INSERT INTO [Orders]
 VALUES('2018-04-23','2018-05-23','2018-05-23',4,2)
