@@ -19,16 +19,16 @@
 
               <div class="caption">
 
-                  <h2>{{car.CarNumber}}</h2>
+                  <h2>{{car?.CarNumber}}</h2>
 
                
-                  <p>CurrentKilometerage: {{car.CarCurrentKilometerage}}</p>
+                  <p>CurrentKilometerage:? {{car?.CarCurrentKilometerage}}</p>
                   <p>Is-fit-for-rental:
-                      <span>{{car.CarIsFitForRental}}</span>
+                      <span>{{car?.CarIsFitForRental}}</span>
                   </p>
-                   <p>Car-Image: {{car.CarImage}}</p>
-                   <p>Car-Type: {{car.CarType.Model}}</p>
-                   <p>CarBranch: {{car.CarBranch.BranchName}}</p>
+                   <p>Car-Image: {{car?.CarImage}}</p>
+                   <p>Car-Type: {{car?.CarType.Model}}</p>
+                   <p>CarBranch: {{car?.CarBranch.BranchName}}</p>
                    <p></p>
                    <p>
                     <a class="btn btn-primary" routerLink="/car"  (click)="showCar(car.CarNumber)">Show details</a>
@@ -52,17 +52,17 @@
     
                   <div class="caption">
     
-                      <h2>{{car.CarNumber}}</h2>
+                      <h2>{{car?.CarNumber}}</h2>
                       <hr/>
     
                    
-                      <p>CurrentKilometerage: {{car.CarCurrentKilometerage}}</p>
+                      <p>CurrentKilometerage: {{car?.CarCurrentKilometerage}}</p>
                       <p>Is-fit-for-rental:
-                          <span>{{car.CarIsFitForRental}}</span>
+                          <span>{{car?.CarIsFitForRental}}</span>
                       </p>
-                       <p>Car-Image: {{car.CarImage}}</p>
-                       <p>Car-Type: {{car.CarType.Model}}</p>
-                       <p>CarBranch: {{car.CarBranch.BranchName}}</p>
+                       <p>Car-Image: {{car?.CarImage}}</p>
+                       <p>Car-Type: {{car?.CarType.Model}}</p>
+                       <p>CarBranch: {{car?.CarBranch.BranchName}}</p>
                        <p></p>
                        <p>
                         <a class="btn btn-primary" routerLink="/car"  (click)="showCar(car.CarNumber)">Show details</a>
@@ -77,10 +77,8 @@
       <div class="form-group row">
             <div class="col-xs-12">
               <br>
-         <!-- <input class="form-control" id="ex2" type="text" placeholder="Enter name:"#rt  localCarGear=(rt.value)>  -->
           <input class="form-control" id="ex2" type="number" placeholder="Enter year from bellow list:" [(ngModel)]="localCarYear">   
-        <!--   <a class="btn btn-primary"   (click)="chooseCarByGear(true)">Show cars with gear</a>
-          <a class="btn btn-primary"   (click)="chooseCarByGear(false)">Show cars with out gear</a> -->
+
           <select class="form-control" > 
                 <option *ngFor="let carType of carTypeStore.carTypeList" >{{carType.ManufactureYear}}</option>
               </select>
@@ -96,17 +94,17 @@
         
                       <div class="caption">
         
-                          <h2>{{car.CarNumber}}</h2>
+                          <h2>{{car?.CarNumber}}</h2>
                           <hr/>
         
                        
-                          <p>CurrentKilometerage: {{car.CarCurrentKilometerage}}</p>
+                          <p>CurrentKilometerage: {{car?.CarCurrentKilometerage}}</p>
                           <p>Is-fit-for-rental:
-                              <span>{{car.CarIsFitForRental}}</span>
+                              <span>{{car?.CarIsFitForRental}}</span>
                           </p>
-                           <p>Car-Image: {{car.CarImage}}</p>
-                           <p>Car-Type: {{car.CarType.Model}}</p>
-                           <p>CarBranch: {{car.CarBranch.BranchName}}</p>
+                           <p>Car-Image: {{car?.CarImage}}</p>
+                           <p>Car-Type: {{car?.CarType.Model}}</p>
+                           <p>CarBranch: {{car?.CarBranch.BranchName}}</p>
                            <p></p>
                            <p>
                             <a class="btn btn-primary" routerLink="/car"  (click)="showCar(car.CarNumber)">Show details</a>
@@ -133,17 +131,17 @@
         
                       <div class="caption">
         
-                          <h2>{{car.CarNumber}}</h2>
+                          <h2>{{car?.CarNumber}}</h2>
                           <hr/>
         
                        
-                          <p>CurrentKilometerage: {{car.CarCurrentKilometerage}}</p>
+                          <p>CurrentKilometerage: {{car?.CarCurrentKilometerage}}</p>
                           <p>Is-fit-for-rental:
-                              <span>{{car.CarIsFitForRental}}</span>
+                              <span>{{car?.CarIsFitForRental}}</span>
                           </p>
-                           <p>Car-Image: {{car.CarImage}}</p>
-                           <p>Car-Type: {{car.CarType.Model}}</p>
-                           <p>CarBranch: {{car.CarBranch.BranchName}}</p>
+                           <p>Car-Image: {{car?.CarImage}}</p>
+                           <p>Car-Type: {{car?.CarType.Model}}</p>
+                           <p>CarBranch: {{car?.CarBranch.BranchName}}</p>
                            <p></p>
                            <p>
                             <a class="btn btn-primary" routerLink="/car"  (click)="showCar(car.CarNumber)">Show details</a>
@@ -170,17 +168,17 @@
               
                             <div class="caption">
               
-                                <h2>{{car.CarNumber}}</h2>
+                                <h2>{{car?.CarNumber}}</h2>
                                 <hr/>
               
                              
-                                <p>CurrentKilometerage: {{car.CarCurrentKilometerage}}</p>
+                                <p>CurrentKilometerage: {{car?.CarCurrentKilometerage}}</p>
                                 <p>Is-fit-for-rental:
-                                    <span>{{car.CarIsFitForRental}}</span>
+                                    <span>{{car?.CarIsFitForRental}}</span>
                                 </p>
-                                 <p>Car-Image: {{car.CarImage}}</p>
-                                 <p>Car-Type: {{car.CarType.Model}}</p>
-                                 <p>CarBranch: {{car.CarBranch.BranchName}}</p>
+                                 <p>Car-Image: {{car?.CarImage}}</p>
+                                 <p>Car-Type: {{car?.CarType.Model}}</p>
+                                 <p>CarBranch: {{car?.CarBranch.BranchName}}</p>
                                  <p></p>
                                  <p>
                                   <a class="btn btn-primary" routerLink="/car"  (click)="showCar(car.CarNumber)">Show details</a>
